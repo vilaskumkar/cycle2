@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>cycle2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--&lt;!&ndash;[if lt IE 9]>-->
+    <!--<script src="assets/js/html5shiv.js"></script>-->
+    <!--<![endif]&ndash;&gt;-->
+
+    <!-- Le fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">-->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">-->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">-->
+    <!--<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">-->
+    <!--<link rel="shortcut icon" href="assets/ico/favicon.png">-->
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cycle2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cycle2.shuffle.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cycle2.tile.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cycle2.swipe.min.js"></script>
+    <script type="text/javascript">
+        $(document.documentElement).keyup(function (e) {
+            if (e.keyCode == 39)
+            {
+                $('.cycle-slideshow').cycle('next');
+            }
+
+            if (e.keyCode == 37)
+            {
+                $('.cycle-slideshow').cycle('prev');
+            }
+
+        });
+        $(document).ready(function(){
+            $( '.cycle-slideshow' ).on( 'cycle-before', function( event, optionHash, outgoingSlideEl, incomingSlideEl, forwardFlag ) {
+                // your event handler code here
+                // argument opts is the slideshow's option hash
+                var index = optionHash.currSlide;
+                if(
+                        [index == 0]
+                        ){
+                    var currentHeightNew = $(incomingSlideEl).height();
+                    console.log("............."+currentHeightNew);
+                    $(this).animate({height: currentHeightNew});
+                }
+                else if(
+                        [index == optionHash.slideCount + 1]
+                        )
+                {
+                    var currentHeight = $(outgoingSlideEl).height();
+                    console.log("............."+currentHeight);
+                    $(this).animate({height: currentHeight});
+                }
+                $( '.cycle-slideshow').cycle('stop');
+            });
+        });
+    </script>
+</head>
+
+<body>
+<div class="container-fluid cycle-slideshow" data-cycle-fx=scrollHorz data-cycle-timeout=0 data-cycle-slides="> div" data-cycle-prev=".prevSlide" data-cycle-next=".nextSlide">
+    <div class="slideThis">
+        <div class="pageHeader">
+            <div class="row-fluid">
+                <div class="span1">
+                    <a href="#" class="logo"></a>
+                </div>
+                <div class="span10">
+                    <h1>
+                        Overview
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="pageContainer">
+            <div class="row-fluid">
+                <div class="span10 offset1">
+                    <p>
+                        Cycle2 is a versatile slideshow plugin for jQuery built around ease-of-use. It supports a declarative initialization style that allows full customization without any scripting. Simply include the plugin, declare your markup, and Cycle2 does the rest.
+                    </p>
+                    <h3>Highlights :</h3>
+                    <ul>
+                        <li>Supports all browswers</li>
+                        <li>Declarative: no scripting needed!</li>
+                        <li>Responsive: fully control your slideshow via css</li>
+                        <li>Customizable: per-slide option overrides</li>
+                        <li>Extensible: fully customizable API (on a per-slideshow basis if you wish)</li>
+                        <li>Smart: supports image loading and delayed initialization</li>
+                        <li>Smarter: supports progressive image loading</li>
+                        <li>Out-of-the-box functionality for pagers, captions, overlays, and prev/next controls</li>
+                        <li>Support for swipe gesture on mobile devices</li>
+                        <li>Fade, scroll, shuffle, tile and carousel transitions</li>
+                        <li>Bookmarkable slides</li>
+                        <li>And lots more!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="slideThis">
+        <div class="pageHeader">
+            <div class="row-fluid">
+                <div class="span1">
+                    <a href="#" class="logo"></a>
+                </div>
+                <div class="span10">
+                    <h1>
+                        Responsive
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="pageContainer">
+            <div class="row-fluid">
+                <div class="span10 offset1">
+                    <p>
+                        Use media queries... don't use media queries... whatever. Cycle2 doesn't care; it's the honeybadger of slideshows plugins. Most of the demos on this site use fluid slideshow designs where the slideshow size adjusts as the window is resized. This is accompolished by a simple style rule like this: 
+                    </p>
+                    <h3><pre>.cycle-slideshow { width: 45% }</pre></h3>
+                    <p>
+                        Your slideshows can be fixed-width or fluid-width, or they can adapt to media query breakpoints. You decide!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slideThis">
+        <div class="pageHeader">
+            <div class="row-fluid">
+                <div class="span1">
+                    <a href="#" class="logo"></a>
+                </div>
+                <div class="span10">
+                    <h1>
+                        How it works?
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="pageContainer">
+            <div class="row-fluid">
+                <div class="span10 offset1">
+                    <p>
+                        It's very simple really, even your grandmother could use it. It goes like this:
+                    </p>
+                    <ul>
+                        <li>Include jQuery and the Cycle2 plugin on your page.</li>
+                        <li>Declare your slideshow markup as shown in the numerous demos.</li>
+                        <li>Sit back and enjoy your slideshow while sipping a cool beverage.</li>
+                    </ul>
+                    <p>
+                        Need more details? Ok, here's the deal: Cycle2 provides a plugin function called cycle. That function is invoked on a container element. Each image in the container becomes a "slide". Options control how and when the slides are transitioned. But here's the thing... you don't have to callcycle and pass your options. You declare your options as attributes on the slideshow element and Cycle2 grabs them from there.
+                    </p>
+                    <p>
+                        What's that you say? You'd rather set your options via script than in the markup? Ok fine, have it your way. You don't have to declare your options in the markup (but it's fun!), you can invokecycle from your own code and pass your options in the old-fashioned way. You can even grab hold of the API object and inject your own implementation of any of the API methods that you choose.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slideThis">
+        <div class="pageHeader">
+            <div class="row-fluid">
+                <div class="span1">
+                    <a href="#" class="logo"></a>
+                </div>
+                <div class="span10">
+                    <h1>
+                        Auto-Initialization
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="pageContainer">
+            <div class="row-fluid">
+                <div class="span10 offset1">
+                    <p>
+                        Cycle2 slideshows can be automatically initialized simply by adding the classname <code>cycle-slideshow</code> to your slideshow container element.
+                    </p>
+                    <p><pre>&lt;div class="cycle-slideshow" ......</pre></p>
+                    <p>
+                        Cycle2 will automatically find and initialize a slideshow for any element that contains this classname. If you do not want this behavior then do not add the <code>cycle-slideshow</code> class to your slideshow and instead initalize the slideshow programmatically by invoking the <code>cycle</code> method on the slideshow container element:
+                    </p>
+                    <p>
+                        <pre>$( '.mySlideshows' ).cycle();</pre>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slideThis">
+        <div class="pageHeader">
+            <div class="row-fluid">
+                <div class="span1">
+                    <a href="#" class="logo"></a>
+                </div>
+                <div class="span10">
+                    <h1>
+                        Options
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="pageContainer">
+            <div class="row-fluid">
+                <div class="span10 offset1">
+                    <p>
+                        Options are set on the slideshow element using <code>data-cycle-<strong>option-name</strong></code> attributes. The option name is always lowercase and prefixed with data-cycle-. For example, to set the speed and manual-speed options you would do this:
+                    </p>
+                    <p><pre>&lt;div class="cycle-slideshow" data-cycle-speed="600" data-cycle-manual-speed="100"&gt; ...</pre></p>
+                    <p>
+                        This is the preferred method of setting slideshow options as it greatly reduces (or eliminates) the need for custom initialize script.
+                    </p>
+                    <p>Options can also be set programatically if you prefer, by passing an options hash to the cycle method. When setting options programmically the option name does not contain the data-cycle- prefix and the string is camelCased on hyphens:</p>
+                    <p>
+                        <pre>
+
+                            $('.cycle-slideshow').cycle({
+                                speed: 600,
+                                manualSpeed: 100
+                            });
+                        </pre>
+                    </p>
+                    <p>All options can be declared with <code>data-cycle-*</code> attributes on the container element and will be inherited by all slides.</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slideThis">
+        <div class="pageHeader">
+            <div class="row-fluid">
+                <div class="span1">
+                    <a href="#" class="logo"></a>
+                </div>
+                <div class="span10">
+                    <h1>
+                        Commands
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="pageContainer">
+            <div class="row-fluid">
+                <div class="span10 offset1">
+                    <p>Commands are issued to slideshows by invoking cycle on the container element and passing it a string argument, which is the command name.</p>
+                    <div class="alert alert-info">It is not valid to issue a command to an element that has not previously been initialized as a Cycle2 slideshow.</div>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>add</td>
+                                <td>Adds one or more slides to the slideshow.</td>
+                            </tr>
+                            <tr>
+                                <td>destroy</td>
+                                <td>Restores slideshow DOM to it's original state (and unbinds events).</td>
+                            </tr>
+                            <tr>
+                                <td>goto</td>
+                                <td>Transitions the slideshow to the slide index provided.</td>
+                            </tr>
+                            <tr>
+                                <td>next</td>
+                                <td>Transitions the slideshow to the next slide.</td>
+                            </tr>
+                            <tr>
+                                <td>pause</td>
+                                <td>Pauses an auto-running slideshow.</td>
+                            </tr>
+                            <tr>
+                                <td>prev</td>
+                                <td>Transitions the slideshow to the previous slide.</td>
+                            </tr>
+                            <tr>
+                                <td>reinit</td>
+                                <td>Reinitializes a slideshow. This is equivalent to issuing the 'destroy' command and then invoking <code>cycle()</code> again.</td>
+                            </tr>
+                            <tr>
+                                <td>remove</td>
+                                <td>Removes a slide from a running slideshow.</td>
+                            </tr>
+                            <tr>
+                                <td>resume</td>
+                                <td>Resumes a paused slideshow.</td>
+                            </tr>
+                            <tr>
+                                <td>stop</td>
+                                <td>Stops an auto-running slideshow.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slideThis">
+        <div class="pageHeader">
+            <div class="row-fluid">
+                <div class="span1">
+                    <a href="#" class="logo"></a>
+                </div>
+                <div class="span10">
+                    <h1>
+                        Declarative Commands
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="pageContainer">
+            <div class="row-fluid">
+                <div class="span10 offset1">
+                    <p>It is possible to issue commands declaratively by using the data-cycle-cmd attribute. You can use this attribute on any element and Cycle2 will use event delegation to issue a cycle command when the element is clicked. For example, to have a random button element pause your slideshow you can do this:</p>
+                    <p><pre>&lt;button data-cycle-cmd="pause"&gt;Pause&lt;/button&gt;</pre></p>
+                    <p>When the above button is clicked, Cycle2 will auto-generate and run this code for you:</p>
+                    <p><pre>$('.cycle-slideshow').cycle('pause');</pre></p>
+                    <p>To specify a specific slideshow as the target of the command, use the data-cycle-context attribute and set its value to a selector string that identifies the desired slideshow:</p>
+                    <p><pre>&lt;button data-cycle-cmd="pause" data-cycle-context="#mySlideshow"&gt;Pause&lt;/button&gt;</pre></p>
+                    <p>When the above button is clicked, Cycle2 will auto-generate and run this code for you:</p>
+                    <p><pre>$('#mySlideshow').cycle('pause');</pre></p>
+                    <p>And finally, you can pass an argument to the cycle command using the data-cycle-arg attribute. For example, to remove the first slide in a slideshow:</p>
+                    <p><pre>&lt;button data-cycle-cmd="remove" data-cycle-context="#mySlideshow" data-cycle-arg="0"&gt;Remove Slide&lt;/button&gt;</pre></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slideThis">
+        <div class="pageHeader">
+            <div class="row-fluid">
+                <div class="span1">
+                    <a href="#" class="logo"></a>
+                </div>
+                <div class="span10">
+                    <h1>
+                        Events
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="pageContainer">
+            <div class="row-fluid">
+                <div class="span10 offset1">
+                    <p>Cycle2 emits numerous events as a slideshow runs and you can bind to these events in order to further customize or augment the slideshow's behavior.</p>
+                    <p>All cycle events are triggered on the slideshow element and so can be bound using code like:</p>
+                    <p>When the above button is clicked, Cycle2 will auto-generate and run this code for you:</p>
+                    <p>
+                        <pre>
+
+                            $( '#mySlideshow' ).on( 'cycle-eventname', function( event, opts ) {
+                                 // your event handler code here
+                                // argument opts is the slideshow's option hash
+                            });
+                        </pre>
+                    </p>
+                    <p>For <strong>Event Name</strong> and <strong>Description / Callback Signature</strong> visit to</p>
+                    <p><pre>http://jquery.malsup.com/cycle2/api/#events</pre></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slideThis">
+        <div class="pageHeader">
+            <div class="row-fluid">
+                <div class="span1">
+                    <a href="#" class="logo"></a>
+                </div>
+                <div class="span10">
+                    <h1>
+                        Miscellaneous Bits
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="pageContainer">
+            <div class="row-fluid">
+                <div class="span10 offset1">
+                    <ul class="unstyled">
+                        <li>
+                            <h3>State</h3>
+                            <p>The Cycle2 options hash contains all of the slideshow's options detailed above, along with the following additional pieces of run-time state.</p>
+                            <p>State data is read-only.</p>
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>busy</td>
+                                    <td>true when a slide transition is active.</td>
+                                </tr>
+                                <tr>
+                                    <td>currSlide</td>
+                                    <td>Zero-based index of the current slide.</td>
+                                </tr>
+                                <tr>
+                                    <td>nextSlide</td>
+                                    <td>Zero-based index of the next slide to be displayed.</td>
+                                </tr>
+                                <tr>
+                                    <td>paused</td>
+                                    <td>true if the slideshow is paused.</td>
+                                </tr>
+                                <tr>
+                                    <td>slideNum</td>
+                                    <td>Useful in template strings for displaying a slide's one-based index.</td>
+                                </tr>
+                                <tr>
+                                    <td>slideCount</td>
+                                    <td>Total number of slides in the slideshow.</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li>
+                            <h3>Testing the Paused State</h3>
+                            <p>Cycle2 assignes the class <code>cycle-paused</code> to the slideshow container when the slideshow is paused. Scripts can determine if the slideshow is currently paused using code like this:</p>
+                            <p><pre>var paused = $('#mySlideshow').is( '.cycle-paused' );</pre></p>
+                        </li>
+                        <li>
+                            <h3>Hash</h3>
+                            <p>Each slide in your slideshow can have an attribute named <code>data-cycle-hash</code>. If you assign a value to this attribute then the location hash of the current page will be updated to reflect that value when the slide is active. Likewise, when the page is loaded if the location hash is equal to the <code>data-cycle-hash</code> of one of the slides then that slide will be made active. See the Bookmarkable demo for more information.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slideThis">
+        <div class="pageHeader">
+            <div class="row-fluid">
+                <div class="span1">
+                    <a href="#" class="logo"></a>
+                </div>
+                <div class="span10">
+                    <h1>
+                        Advanced API
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="pageContainer">
+            <div class="row-fluid">
+                <div class="span10 offset1">
+                    <p>The Cycle2 plugin has a rich set of functions which it invokes in order to initialize and run a slideshow. This API is fully customizable so that you can both replace existing implementation bits and also create new transition effects.</p>
+                    <ul class="unstyled">
+                        <li>
+                            <h3>Methods</h3>
+                            <p>All API methods can be replaced with custom implementations by binding to the <code>cycle-bootstrap</code> event and replacing the appropriate property on the API object. Example:</p>
+                            <p>
+                                <pre>
+
+                                     $( '#mySlideshow' ).on( 'cycle-bootstrap', function( e, optionHash, API ) {
+                                            // replace "advanceSlide" method with custom impl
+                                            API.advanceSlide = function( numberOfPositions ) {
+                                            // custom implementation
+                                        }
+                                     });
+                                </pre>
+                            </p>
+                            <p>It is also possible to retrieve the API object at any time by using the data method on the slideshow container.</p>
+                            <p>
+                                <pre>
+
+                                    var API = $( '#mySlideshow' ).data( 'cycle.API' );
+                                </pre>
+                            </p>
+                        </li>
+                        <li>
+                            <h3>Transitions API</h3>
+                            <p>Custom transitions are created by extending Cycle2's <code>transitions</code> object with an object that implements some or all of the transition API. For example:</p>
+                            <p>
+                                <pre>
+
+                                     $.fn.cycle.transitions.myNewTransition = {
+                                        before: function( opts, curr, next, fwd ) {
+                                             // assign properties to the opts object
+                                        }
+                                     }
+                                </pre>
+                            </p>
+                            <p>A transition's <code>before</code> function is invoked prior to starting a transition from one slide to the next. Typically defining the <code>before</code> function is adequate for defining a new transition effect, however you may also define any of the other functions described below. Once a new transition is defined, it can be used by assigning it's name to Cycle2's fx option.</p>
+                            <p>
+                                <pre>
+
+                                    $('.cycle-slideshow').cycle({ fx: 'myNewTransition' });
+                                </pre>
+                            </p>
+                            <p>for more details please visit : <pre>http://jquery.malsup.com/cycle2/api/advanced.php</pre></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="slideControls">
+    <a href="#" class="prevSlide">Prev</a>
+    <a href="#" class="nextSlide">Next</a>
+</div>
+</body>
+</html>

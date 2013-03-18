@@ -1,0 +1,46 @@
+body    {
+    font-size: 18px;
+}
+.container-fluid    {
+    padding: 0;
+    margin: 0;
+}
+.cycle-slideshow    {
+    width: 100%;
+}
+.slideThis  {
+    width: 100%;
+}
+.pageHeader {
+    border: solid #849cbd; border-width: 5px 0; margin: 0; padding: 15px;
+    background-color: #2B4791;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#2B4791), to(#142248));
+    background-image: -webkit-linear-gradient(top, #2B4791, #142248);
+    background-image: -moz-linear-gradient(top, #2B4791, #142248);
+    background-image: -ms-linear-gradient(top, #2B4791, #142248);
+    background-image: -o-linear-gradient(top, #2B4791, #142248);
+}
+.pageHeader a.logo {
+    width: 48px;
+    height: 48px;
+    background: url("../images/logo.png") 0 0 no-repeat;
+    margin: 10px;
+    display: block;
+}
+h1, h2, h3, h4, h5, h6  {
+    font-family: acme, tahoma, arial;
+    text-align: center;
+    color: #fff;
+}
+
+.pageContainer  {
+    margin: 20px;
+    color: #000;
+    text-align: justify;
+}
+
+.pageContainer h3   {
+    color: #000;
+    text-align: left;
+}
+
