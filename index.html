@@ -63,6 +63,29 @@
                 $( '.cycle-slideshow').cycle('stop');
             });
         });
+        $(window).resize(function(){
+            $( '.cycle-slideshow' ).on( 'cycle-before', function( event, optionHash, outgoingSlideEl, incomingSlideEl, forwardFlag ) {
+                // your event handler code here
+                // argument opts is the slideshow's option hash
+                var index = optionHash.currSlide;
+                if(
+                        [index == 0]
+                        ){
+                    var currentHeightNew = $(incomingSlideEl).height();
+                    console.log("............."+currentHeightNew);
+                    $(this).animate({height: currentHeightNew});
+                }
+                else if(
+                        [index == optionHash.slideCount + 1]
+                        )
+                {
+                    var currentHeight = $(outgoingSlideEl).height();
+                    console.log("............."+currentHeight);
+                    $(this).animate({height: currentHeight});
+                }
+                $( '.cycle-slideshow').cycle('stop');
+            });
+        });
     </script>
 </head>
 
