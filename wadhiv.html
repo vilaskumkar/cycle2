@@ -30,25 +30,25 @@
     <script type="text/javascript" src="js/jquery.cycle2.shuffle.min.js"></script>
     <script type="text/javascript" src="js/jquery.cycle2.tile.min.js"></script>
     <script type="text/javascript" src="js/jquery.cycle2.swipe.min.js"></script>
-    <script>$.fn.cycle.defaults.autoSelector = '.slideshow1, .slideshow2, .slideshow3';</script>
+    
     <script type="text/javascript">
 
 
         $(document.documentElement).keyup(function (e) {
             if (e.keyCode == 39)
             {
-                // $('.cycle-slideshow').cycle('next');
-                $('.active .slideshow1').cycle('next');
-                $('.active .slideshow2').cycle('next');
-                $('.active .slideshow3').cycle('next');
+                $('.active .cycle-slideshow').cycle('next');
+                // $('.active .slideshow1').cycle('next');
+                // $('.active .slideshow2').cycle('next');
+                // $('.active .slideshow3').cycle('next');
             }
 
             if (e.keyCode == 37)
             {
-                // $('.cycle-slideshow').cycle('prev');
-                $('.active .slideshow1').cycle('prev');
-                $('.active .slideshow2').cycle('prev');
-                $('.active .slideshow3').cycle('prev');
+                $('.active .cycle-slideshow').cycle('prev');
+                // $('.active .slideshow1').cycle('prev');
+                // $('.active .slideshow2').cycle('prev');
+                // $('.active .slideshow3').cycle('prev');
             }
 
         });
@@ -67,7 +67,7 @@
 		    	ul.removeClass("active");
 		    	ul.eq(random).addClass("active");
 		    }
-		    
+
         });
     </script>
 </head>
@@ -76,7 +76,7 @@
 
 <div class="waa">
 <h1>slideshow1</h1>
-<div class="slideshow1" 
+<div class="cycle-slideshow" 
     data-cycle-fx="scrollHorz" 
     data-cycle-timeout="0"
     data-cycle-slides="> div"
@@ -94,7 +94,7 @@
 </div>
 <div class="waa">
 <h1>slideshow2</h1>
-<div class="slideshow2" 
+<div class="cycle-slideshow" 
     data-cycle-fx="scrollHorz" 
     data-cycle-timeout="0"
     data-cycle-slides="> div"
@@ -112,7 +112,7 @@
 </div>
 <div class="waa">
 <h1>slideshow3</h1>
-<div class="slideshow3" 
+<div class="cycle-slideshow" 
     data-cycle-fx="scrollHorz" 
     data-cycle-timeout="0"
     data-cycle-slides="> div"
